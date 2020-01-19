@@ -7,8 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-/** angular flex */
+/** Module */
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CoreModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
