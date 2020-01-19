@@ -1,1 +1,33 @@
-<p>signin works!</p>
+<mat-card class="signin">
+    <section fxLayout="column" fxLayoutAlign="center center">
+        <h1> CONNEXION</h1>
+
+        <p>
+        <mat-icon>warning</mat-icon>
+        L'accés est strictement réservé aux collaborateurs de sas-valet !
+        Toute intrusion non autorisé fera suite de poursuite pénale (art 233 - code pénale).
+        </p>
+    
+
+        <mat-form-field class="input">
+            <input matInput 
+                placeholder="lastName"
+                value=""
+                formControlName="lastName">
+        </mat-form-field> 
+
+
+        <mat-form-field class="input">
+            <input matInput 
+                placeholder="Pseudo"
+                value=""
+                type="password"
+                formControlName="password">
+        </mat-form-field> 
+
+        <button (click)="login()">
+            CONNEXION
+        </button>
+
+    </section>
+</mat-card>
