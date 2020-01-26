@@ -5,6 +5,17 @@ import { FormGroup } from '@angular/forms';
 /** services */
 import { AuthFormulaireService } from '../services/auth-formulaire.service';
 import { SigninService } from '../services/signin.service';
+import { ModalService } from 'src/app/angular-material/services/modal.service';
+
+
+/*** rxjs */
+import { Subscription, Subject, Observable } from 'rxjs';
+import { Route, Router } from '@angular/router';
+import { retry, take, isEmpty, defaultIfEmpty } from 'rxjs/operators';
+import { isNullOrUndefined } from 'util';
+
+
+
 
 @Component({
   selector: 'app-signin',
@@ -13,9 +24,15 @@ import { SigninService } from '../services/signin.service';
 })
 export class SigninComponent implements OnInit {
 
-authForm: FormGroup;
+  authForm: FormGroup;
+  authServiceSubscription: Subscription;
+  userSubscription: Subscription;
+  tokenResponse: any;
+  user: any;
+  INFO: any;
 
-  constructor(private authFormulaire: AuthFormulaireService, private signinService: SigninService) { }
+  constructor(private authFormulaire: AuthFormulaireService, private signinService: SigninService,
+              private modalService: ModalService, private router: Router) { }
 
   ngOnInit() {
     this.authForm = this.authFormulaire.buildForm();
@@ -23,10 +40,25 @@ authForm: FormGroup;
 
   login() {
     const user = {
-    username: this.authForm.get('lastName').value,
-    password: this.authForm.get('password').value
+      username: this.authForm.get('lastName').value,
+      password: this.authForm.get('password').value
     };
-    this.signinService.login(user);
+    this.authServiceSubscription = this.signinService.login(user).pipe(
+      defaultIfEmpty(true),
+      retry(1),
+    ).subscribe(
+      data => this.tokenResponse = data,
+    );
+
+
+    if (this.tokenResponse === true) {
+      this.modalService.openInfoModalsFailled('CONNEXION APPROUVER');
+      this.router.navigate(['/affaire']);
+    }
+
+    if (this.tokenResponse === false) {
+      this.modalService.openInfoModalsFailled('ECHEC');
+    }
   }
 
 }

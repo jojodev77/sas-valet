@@ -1,0 +1,50 @@
+<section fxLayout="column" fxLayoutAlign="space-around center">
+    <form [formGroup]="affaireForm" class="mat-elevation-z8">
+
+        <section fxLayout="row" fxLayoutAlign="space-around center" class="ligne1">
+
+            <mat-form-field class="input">
+                <input matInput 
+                    placeholder="Client"
+                    value=""
+                    formControlName="affairClientLabel">
+            </mat-form-field> 
+
+            <mat-form-field class="input">
+                <input matInput 
+                    placeholder="Code de la commande"
+                    value=""
+                    formControlName="affairCode">
+            </mat-form-field> 
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Date de livraison"  formControlName="affairToDelivreDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </section>
+        <section fxLayout="row" fxLayoutAlign="space-around center" class="ligne2">
+
+            <button type="button" mat-raised-button (click)="fileInput.click()">Télécharger plan technique</button>
+            <input hidden (change)="onFileSelected()" #fileInput type="file" id="file" formControlName="affairShema"> 
+
+            <mat-form-field class="input">
+                <input matInput 
+                    placeholder="Nombre de pièces à produire"
+                    value=""
+                    formControlName="affairNumberToCreate">
+            </mat-form-field> 
+
+            
+        </section>
+
+        <section fxLayout="row" fxLayoutAlign="center center" class="ligne3">
+
+            <button type="button" mat-raised-button (click)="enregistrerAffaire()">Enregistrer</button>
+
+
+            
+        </section>
+    </form>
+</section>

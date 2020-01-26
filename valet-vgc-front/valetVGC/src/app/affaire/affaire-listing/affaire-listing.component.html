@@ -1,0 +1,60 @@
+<section  fxLayout="row" fxLayoutAlign="center center" >
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- affairClientLabel -->
+        <ng-container matColumnDef="affairClientLabel">
+            <th mat-header-cell *matHeaderCellDef> Client: </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairClientLabel}} </td>
+        </ng-container>
+
+        <!-- affairCode -->
+        <ng-container matColumnDef="affairCode">
+            <th mat-header-cell *matHeaderCellDef> Numéro de la commande: </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairCode}} </td>
+        </ng-container>
+
+         <!-- affairShema -->
+        <ng-container matColumnDef="affairShema">
+            <th mat-header-cell *matHeaderCellDef> Plan technique: </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairShema}} </td>
+        </ng-container>
+
+         <!-- affairCreateDate -->
+        <ng-container matColumnDef="affairCreateDate">
+            <th mat-header-cell *matHeaderCellDef> Date de création: </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairCreateDate}} </td>
+        </ng-container>
+
+         <!-- affairToDelivreDate -->
+        <ng-container matColumnDef="affairToDelivreDate">
+            <th mat-header-cell *matHeaderCellDef> Date de livraison:  </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairToDelivreDate}} </td>
+        </ng-container>
+
+        <!-- affairNumberToCreate -->
+        <ng-container matColumnDef="affairNumberToCreate">
+            <th mat-header-cell *matHeaderCellDef> Nombre de pièces: . </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairNumberToCreate}} </td>
+        </ng-container>
+
+        <!-- affairNumberDelivred -->
+        <ng-container matColumnDef="affairNumberDelivred">
+            <th mat-header-cell *matHeaderCellDef> Pièces déja prêtes:. </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairNumberDelivred}} </td>
+        </ng-container>
+
+        <!-- affairValidator -->
+        <ng-container matColumnDef="affairValidator">
+            <th mat-header-cell *matHeaderCellDef> Etat:. </th>
+            <td mat-cell *matCellDef="let element"> {{element.affairValidator}} </td>
+        </ng-container>
+
+         <!-- close -->
+        <ng-container matColumnDef="close">
+            <th mat-header-cell *matHeaderCellDef> Clôturer </th>
+            <td mat-cell *matCellDef="let element"> <mat-icon>close</mat-icon> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</section>

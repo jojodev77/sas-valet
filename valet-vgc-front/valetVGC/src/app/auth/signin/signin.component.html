@@ -1,4 +1,6 @@
-<mat-card class="signin">
+
+<form [formGroup]="authForm">
+<mat-card class="signin mat-elevation-z8">
     <section fxLayout="column" fxLayoutAlign="center center">
         <h1> CONNEXION</h1>
 
@@ -11,7 +13,7 @@
 
         <mat-form-field class="input">
             <input matInput 
-                placeholder="lastName"
+                placeholder="ID"
                 value=""
                 formControlName="lastName">
         </mat-form-field> 
@@ -19,15 +21,15 @@
 
         <mat-form-field class="input">
             <input matInput 
-                placeholder="Pseudo"
+                placeholder="PASSWORD"
                 value=""
                 type="password"
                 formControlName="password">
         </mat-form-field> 
 
-        <button (click)="login()">
-            CONNEXION
+        <button  (click)="login()"
+            >Connexion
         </button>
-
     </section>
 </mat-card>
+</form>

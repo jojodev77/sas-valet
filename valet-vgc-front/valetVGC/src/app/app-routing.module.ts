@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 /** component */
 import { SigninComponent } from './auth/signin/signin.component';
+import { AffaireContainerComponent } from './affaire/affaire-container/affaire-container.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('../app/auth/auth.module').then(mod => mod.AuthModule)
+  },
+
+  {
+    path: 'affaire',
+    component: AffaireContainerComponent
   },
 ];
 

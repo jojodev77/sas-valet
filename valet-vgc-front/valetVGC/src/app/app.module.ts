@@ -12,6 +12,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
+import { AffaireModule } from './affaire/affaire.module';
+import { AffaireModuleRouting } from './affaire/affaire.module.routing';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AuthModule } from './auth/auth.module';
     FlexLayoutModule,
     CoreModule,
     AuthModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AffaireModuleRouting,
+    AffaireModule
   ],
   providers: [],
   bootstrap: [AppComponent]

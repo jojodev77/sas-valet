@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,15 @@ export class AuthFormulaireService {
 
   constructor(private fb: FormBuilder) { }
 
-  buildForm() {
+  buildForm(): FormGroup {
     return this.fb.group({
       lastName: new FormControl({
         value: '',
-        disable: false
+        disabled: false,
       }),
       password: new FormControl({
         value: '',
-        disable: false
+        disabled: false,
       }),
     });
   }
